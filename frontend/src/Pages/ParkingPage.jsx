@@ -31,7 +31,7 @@ const ParkingPage = () => {
       }
     } catch (err) {
       console.error(err);
-      setError('Server error');
+      setError(err);
     }
   };
 
