@@ -2,37 +2,41 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const authRoutes = require('./routes/auth');
-require('dotenv').config(); 
-const path = require('path');
+require('dotenv').config();
 
 const app = express();
 
-// CORS
 app.use(cors({
   origin: 'http://localhost:5173',
   credentials: true
 }));
-
 app.use(express.json());
 
-// MongoDB
-mongoose.connect(process.env.MONGO_URI, {
-  dbName: process.env.DB_NAME
-})
+
+mongoose.connect(process.env.MONGO_URI, {})
 .then(() => console.log('MongoDB connected'))
 .catch(err => console.error('MongoDB connection error:', err));
 
-// Routes
+// Use auth routes
 app.use('/', authRoutes);
 
-// Serve frontend in production
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.join(__dirname, '../dist')));
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist', 'index.html'));
-  });
-}
-
-// Dynamic Port for Heroku
-const PORT = process.env.PORT || 3000;
+// Start server
+const PORT = 3000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+// const Parking = require('./models/Parking');
+
+// app.post('/find-vehicle', async (req, res) => {
+//   const { vehicleNumber } = req.body;
+//   try {
+//     const userSlot = await Parking.findOne({ vehicleNumber });
+//     const occupiedSlots = await Parking.find({ isOccupied: true });
+
+//     res.json({
+//       userSlot: userSlot?.slotNumber || null,
+//       occupied: occupiedSlots.map(s => s.slotNumber),
+//     });
+//   } catch (err) {
+//     res.status(500).json({ error: 'Server error' });
+//   }
+// });
