@@ -1,0 +1,34 @@
+ParkingPage.css
+.slot {
+    width: 64px;
+    height: 64px;
+    margin: 8px;
+    border: 2px solid black;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+  }
+
+  .slot-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 100px; 
+    margin-top: 30px;
+  }
+  
+  .empty-slot {
+    background-color: #d1d5db; 
+  }
+  
+  .occupied-slot {
+    background-color: #ef4444; 
+  }
+  
+  .user-slot {
+    background-color: #22c55e; 
+  }
+  
