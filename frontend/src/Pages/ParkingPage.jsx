@@ -57,7 +57,7 @@ const ParkingPage = () => {
     }
 
     return (
-      <div className="flex flex-col md:flex-row sm:flex-row justify-center gap-6 mt-8">
+      <div className="flex justify-center gap-6 mt-8">
         <div className="flex flex-col gap-4">{slots.slice(0, 5)}</div>
         <div className="flex flex-col gap-4">{slots.slice(5, 10)}</div>
       </div>
@@ -71,7 +71,7 @@ const ParkingPage = () => {
           Parking Slot Allocation
         </h1>
 
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex flex-col sm:flex-row items-center gap-3 mb-4">
           <input
             type="text"
             value={vehicleNumber}
