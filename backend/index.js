@@ -6,10 +6,7 @@ require('dotenv').config();
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://parking-sand.vercel.app/',
-  credentials: true
-}));
+app.use(cors());
 app.use(express.json());
 
 
