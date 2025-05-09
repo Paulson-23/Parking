@@ -39,7 +39,7 @@ const ParkingPage = () => {
     const slots = [];
     for (let i = 1; i <= 10; i++) {
       let slotClass =
-        'w-16 h-16 flex items-center justify-center rounded-xl border text-sm font-medium transition-colors duration-200 ';
+        'min-w-[4rem] min-h-[4rem] flex items-center justify-center rounded-xl border text-sm font-medium transition-colors duration-200';
 
       if (userSlot === i) {
         slotClass += 'bg-green-600 text-white shadow-lg';
