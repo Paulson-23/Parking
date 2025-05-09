@@ -39,7 +39,7 @@ const ParkingPage = () => {
     const slots = [];
     for (let i = 1; i <= 10; i++) {
       let slotClass =
-        'w-14 h-14 sm:w-16 sm:h-16 flex items-center justify-center rounded-xl border text-xs sm:text-sm font-medium transition-colors duration-200';
+        'w-16 h-16 flex items-center justify-center rounded-xl border text-sm font-medium transition-colors duration-200 ';
       if (userSlot === i) {
         slotClass += 'bg-green-600 text-white shadow-lg';
       } else if (occupiedSlots.includes(i)) {
@@ -56,7 +56,7 @@ const ParkingPage = () => {
     }
 
     return (
-      <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
+      <div className="flex flex-col justify-center gap-6 mt-8">
         <div className="flex flex-col gap-4">{slots.slice(0, 5)}</div>
         <div className="flex flex-col gap-4">{slots.slice(5, 10)}</div>
       </div>
