@@ -57,7 +57,7 @@ const ParkingPage = () => {
     }
 
     return (
-      <div className="flex flex-col sm:flex-row justify-center gap-6 mt-8">
+      <div className="flex flex-col md:flex-row sm:flex-row justify-center gap-6 mt-8">
         <div className="flex flex-col gap-4">{slots.slice(0, 5)}</div>
         <div className="flex flex-col gap-4">{slots.slice(5, 10)}</div>
       </div>
