@@ -11,7 +11,7 @@ const ParkingPage = () => {
 
   const handleSubmit = async () => {
     try {
-      const res = await axios.post('https://parking-fufa.onrender.com', {
+      const res = await axios.post('https://parking-fufa.onrender.com/parking', {
         vehicleNumber,
       });
 
