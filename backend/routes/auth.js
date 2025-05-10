@@ -159,6 +159,17 @@ router.post('/parking', async (req, res) => {
   }
 });
 
+// PUT /parking/reset - Sets all isOccupied fields to false
+router.put('/parking/reset', async (req, res) => {
+  try {
+    await Parking.updateMany({}, { $set: { isOccupied: false } });
+    res.json({ message: 'All records reset to unoccupied.' });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
 // DELETE /parking/:vehicleNumber (Set isOccupied to false)
 router.delete('/parking/:vehicleNumber', async (req, res) => {
   try {
