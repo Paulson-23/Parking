@@ -64,7 +64,7 @@ const ParkingPage = () => {
     );
   };
 
-  return (
+  return (  
     <div className="min-h-screen bg-white flex items-center justify-center px-4">
       <div className="max-w-md w-full shadow-xl border rounded-2xl p-8 bg-gray-50">
         <h1 className="text-2xl font-bold text-center text-blue-700 mb-6">
