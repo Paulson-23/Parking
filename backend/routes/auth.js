@@ -80,7 +80,6 @@
 
 
 // module.exports = router;
-
 const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
@@ -160,14 +159,20 @@ router.post('/parking', async (req, res) => {
   }
 });
 
-// DELETE /parking/:vehicleNumber
+// DELETE /parking/:vehicleNumber (Set isOccupied to false)
 router.delete('/parking/:vehicleNumber', async (req, res) => {
   try {
     const vehicleNumber = req.params.vehicleNumber.toUpperCase();
-    const deleted = await Parking.findOneAndDelete({ vehicleNumber });
+    
+    // Find the parking record
+    const parkingRecord = await Parking.findOne({ vehicleNumber });
 
-    if (deleted) {
-      res.status(200).json({ message: 'Vehicle record deleted successfully' });
+    if (parkingRecord) {
+      // Update the isOccupied field to false
+      parkingRecord.isOccupied = false;
+      await parkingRecord.save();
+
+      res.status(200).json({ message: 'Vehicle record marked as unoccupied successfully' });
     } else {
       res.status(404).json({ message: 'Vehicle not found' });
     }
